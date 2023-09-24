@@ -7,6 +7,7 @@ import random
 
 Base = declarative_base()
 
+
 class Client(Base):
     __tablename__ = "clients"
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -20,6 +21,7 @@ class Client(Base):
 
     def __repr__(self):
         return f"Client(id={self.id}, name={self.name}, ssn={self.ssn}, address={self.address})"
+
 
 class Account(Base):
     __tablename__ = "accounts"
@@ -35,7 +37,9 @@ class Account(Base):
     )
 
     def __repr__(self):
-        return f"Account(id={self.id}, type={self.type}, agency={self.agency}, number={self.number}, balance={self.balance})"
+        return (f"Account(id={self.id}, type={self.type}, agency={self.agency}, number={self.number}, "
+                f"balance={self.balance})")
+
 
 def generate_random_ssn():
     ssn = [str(random.randint(0, 9)) for _ in range(9)]
@@ -43,11 +47,11 @@ def generate_random_ssn():
     ssn.insert(6, "-")
     return "".join(ssn)
 
-# Mock data
+
 MOCK_DATA = [
     Client(
         name='Peter Parker',
-        ssn='000-000-0000',
+        ssn='000-00-0000',
         address='123 Main St, Anytown',
         accounts=[
             Account(
@@ -130,4 +134,3 @@ with Session(engine) as session:
     print("\nExecuting a statement using a database connection")
     for result in results:
         print(result)
-
