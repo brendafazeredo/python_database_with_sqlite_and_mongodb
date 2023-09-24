@@ -47,7 +47,10 @@ def generate_random_ssn():
     ssn.insert(6, "-")
     return "".join(ssn)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1b2db53d4810abab3b8858cce41236f2c5adb5b7
 MOCK_DATA = [
     Client(
         name='Peter Parker',
