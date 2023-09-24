@@ -43,11 +43,10 @@ def generate_random_ssn():
     ssn.insert(6, "-")
     return "".join(ssn)
 
-# Mock data
 MOCK_DATA = [
     Client(
         name='Peter Parker',
-        ssn='000-000-0000',
+        ssn='000-00-0000',
         address='123 Main St, Anytown',
         accounts=[
             Account(
@@ -130,4 +129,3 @@ with Session(engine) as session:
     print("\nExecuting a statement using a database connection")
     for result in results:
         print(result)
-
